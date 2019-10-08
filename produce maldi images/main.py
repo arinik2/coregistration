@@ -2,14 +2,15 @@
 from matplotlib import pyplot as plt
 from mymethods import record_reader
 from imzmlparser import ImzMLParser
-from mymethods import getmaxmin,correlation_segmentation_reference,kmeanscorrelationfull,get_edge_pixels
+from mymethods import getmaxmin,correlation_segmentation_reference,kmeanscorrelationfull
 from skimage.filters import threshold_minimum, median
 from skimage.morphology import disk
+import os
 # This code provides you with ion images given a MALDI file in imzML format
 
-MALDI_path = 'W:\\Arina\\Li Li-Stem Cell Imaging\\20180411_day5-8\\day5\\20180411_day5_box1\\20180411_day5_box1.imzML'
-output_folder = "day5box1"
-
+MALDI_path = 'W:\\Arina\\Li Li-Stem Cell Imaging\\20180407_day4\\20180407_day4_box 5_RN50\\20180407_day4_box 5_RN50.imzML'
+output_folder = "day4box5"
+if not os.path.exists(output_folder): os.mkdir(output_folder)
 # m/z values to get images of
 ions = [227.52,241.271,253.434,279.372,281.33,883.52,885.522,887.553,913.524,915.555,940.497]
 # peak widths, values get summed from ion-tolerance to ion+tolerance
@@ -26,7 +27,6 @@ img = plt.imread(output_folder+"/"+the_nicest_ion_image_of_the_colony)
 img = 0.2989*img[:,:,0]+0.5870*img[:,:,1]+0.11*img[:,:,2]
 t = threshold_minimum(img)
 img = img > t
-img = 1-img.astype(np.uint8)
 colony = median(img, disk(10))
 # you will get a text output "kmeans k output.txt" with coordinates and corresponding labels and a corresponding image
 kmeanscorrelationfull(p,colony,xmin,ymin,xmax,ymax,k)

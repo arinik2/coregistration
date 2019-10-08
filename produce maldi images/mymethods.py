@@ -36,17 +36,21 @@ def record_reader(borders,p,MALDI_output,mz_values,tolerances):
 
 
 def correlation_segmentation_reference(p,colony,xmin,ymin,xmax,ymax,x_ref = -1,y_ref = -1,all = True):
-    im = np.zeros((ymax-ymin, xmax-xmin))
     imcorr = np.zeros((ymax-ymin, xmax-xmin))
     pearsons = []
     xs = []
     ys = []
     n = len(p.coordinates)
     i = random.randint(0, n)
-    while colony[p.coordinates[i][1]-ymin-1, p.coordinates[i][0]-xmin-1] != 255:
-        i = random.randint(0, n)
+    print(i,n,len(colony),len(colony[0]))
     x = p.coordinates[i][0]
     y = p.coordinates[i][1]
+    print(i,x,y,colony[p.coordinates[i][1]-ymin-1, p.coordinates[i][0]-xmin-1])
+    while colony[p.coordinates[i][1]-ymin-1, p.coordinates[i][0]-xmin-1] != 255:
+        i = random.randint(0, n)
+        x = p.coordinates[i][0]
+        y = p.coordinates[i][1]
+        print(i,x,y)
     if x_ref != -1:
         for i, (x, y, z) in enumerate(p.coordinates):
             if x == x_ref and y == y_ref:
@@ -70,7 +74,7 @@ def correlation_segmentation_reference(p,colony,xmin,ymin,xmax,ymax,x_ref = -1,y
     ax.set_yticks(np.arange(0,ymax-ymin,10))
     ax.set_yticklabels(np.arange(ymin,ymax,10))
     ax.tick_params(axis='both', which='major', labelsize=7)
-    plt.imshow(im,cmap ='jet')
+    plt.imshow(imcorr,cmap ='jet')
     plt.colorbar()
     plt.show()
     fig.savefig("correlation heatmap x_ref"+str(x)+"y_ref"+str(y)+".png")
