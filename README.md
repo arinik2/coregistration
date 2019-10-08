@@ -24,4 +24,6 @@ For steps 5 and 6 all the ".m" files should be present in the working directory.
   5.1. Change the ".csv" file to be an ".xlsx" file. Open "metrics.m", adjust paths and run.
   
 6. Downsampling
-  5.1. Change the ".csv" file to be an ".xlsx" file. Open "tilesFull.m", adjust paths and run.
+  6.1. Change the ".csv" file to be an ".xlsx" file. Open "tilesFull.m", adjust paths and run.
+
+To visualize your metrics open "visual.m" adjust paths and run.
