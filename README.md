@@ -3,7 +3,7 @@ For any issues with the software e-mail anikitina3@gatech.edu
 1. Get m/z images from imzML format 
   1.1 Open "produce maldi images/main.py", adjust the paths to your files in the code and run it. It will output a folder with m/z images and also produce clustering of pixels by spectra similarity.
   
-2. Training a U-net for confocal Hoecst images segmentation of on-colony/off-colony regions
+2. (Optional, pre-trained U-net is provided for step 3) Training a U-net for confocal Hoecst images segmentation of on-colony/off-colony regions
   2.1 Download "segmentation.zip" via https://drive.google.com/open?id=106712ypjcPuKMJ_LdWUSHqaJS5BBSgXp
   2.2 Download "colonies.zip" via https://drive.google.com/open?id=150qOc8d6WzzLc4U6rUarGhbdlomFNMSt
   2.3 Unzip and upload to your Google Drive.
