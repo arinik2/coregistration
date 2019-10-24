@@ -16,7 +16,7 @@ For any issues with the software e-mail anikitina3@gatech.edu
   3.4 Open "coregistration.ipynb", adjust paths to your files and run it. It will align and crop images, maintaining the resolution of confocal images. (Example of aligned m/z images is at "confocal for segmentation and alignment/maldi aligned", of cropped confocal images here https://drive.google.com/open?id=1gCi9DsShXZ7PFbkC_e0By_8dLlO-maIv)
   
 4. Cell-by-cell intensities extraction
-  4.1 Open "cellprofiler pipeline name here" in the CellProfiler, upload aligned confocal and m/z images and run it. It will produce a ".csv" file with cell-by-cell intensities of confocal and m/z images and some cell area-shape metrics.
+  4.1 Open "identifycellsRGB.cpproj" in the CellProfiler, upload aligned confocal and m/z images and run it. It will produce a ".csv" file with cell-by-cell intensities of confocal and m/z images and some cell area-shape metrics.
   
 For steps 5 and 6 all the ".m" files should be present in the working directory.
 
